@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { FaSpinner } from "react-icons/fa";
-import LoadingImage from "images/backgroudeImage.gif";
+import LoadingImage from "Images/backgroudeImage.gif";
 
 const Container = styled.div`
   position: fixed;
