@@ -1,14 +1,16 @@
 import React from "react";
-import GlobalStyles from "Components/GlobalStyles";
+import Globalstyles from "Components/Globalstyles";
 import Router from "Components/Router";
 import Bg from "Components/Bg";
+import Status from "./Status";
 
 const App = () => {
   return (
     <>
-      <GlobalStyles />
-      <Bg />
       <Router />
+      <Globalstyles />
+      <Status />
+      <Bg />
     </>
   );
 };
