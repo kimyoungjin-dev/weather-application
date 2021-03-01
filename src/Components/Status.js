@@ -4,7 +4,6 @@ import { BsBatteryHalf, BsFilterRight } from "react-icons/bs";
 import { BiWifi } from "react-icons/bi";
 
 const Container = styled.div`
-  padding: 10px; /////padding 10px
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -20,7 +19,7 @@ const Item = styled.span`
   margin-left: 10px;
 `;
 
-const Status = ({}) => {
+const Status = () => {
   const [clock, setClock] = useState("");
 
   const getClock = () => {
@@ -43,16 +42,13 @@ const Status = ({}) => {
   return (
     <Container>
       <Time>{clock}</Time>
-
       <ItemList>
         <Item>
           <BsBatteryHalf />
         </Item>
-
         <Item>
           <BiWifi />
         </Item>
-
         <Item>
           <BsFilterRight />
         </Item>
