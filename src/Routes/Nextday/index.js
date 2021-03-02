@@ -1,3 +1,3 @@
-import NextContainer from "./NextContainer";
+import NextStore from "./NextStore";
 
-export default NextContainer;
+export default NextStore;
