@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import Loading from "Components/Loading";
 import { useState } from "./Context";
 import { week, day, month, year } from "Components/Date";
 import bgImage from "Images/HomePoster.jpeg";
+import { IoIosArrowForward } from "react-icons/io";
+import { useHistory } from "react-router-dom";
 
 const Container = styled.div`
   height: 18vh;
@@ -11,7 +12,6 @@ const Container = styled.div`
   display: flex;
 `;
 
-//left
 const LeftContentsBox = styled.div`
   width: 65%;
   display: flex;
@@ -34,7 +34,6 @@ const Country = styled.span`
   font-size: 14px;
 `;
 
-//right
 const RightContentsBox = styled.div`
   width: 35%;
   display: flex;
@@ -53,9 +52,28 @@ const BgImage = styled.img`
   margin: 10px 0px;
 `;
 
+const GoHomeContainer = styled.div`
+  display: flex;
+  margin-right: 10px;
+  align-items: center;
+  justify-content: flex-end;
+  cursor: pointer;
+`;
+
+const GoHomeTitle = styled.span`
+  opacity: 0.8;
+`;
+
+const GoHomeIcon = styled.span``;
+
 const Form = () => {
+  const history = useHistory();
   const { response } = useState();
   const [data] = response;
+
+  const onNextDayClick = () => {
+    history.push("/nextday");
+  };
 
   return (
     <>
@@ -73,6 +91,12 @@ const Form = () => {
         </RightContentsBox>
       </Container>
       <BgImage src={bgImage} />
+      <GoHomeContainer onClick={() => onNextDayClick()}>
+        <GoHomeTitle>Next 7day</GoHomeTitle>
+        <GoHomeIcon>
+          <IoIosArrowForward />
+        </GoHomeIcon>
+      </GoHomeContainer>
     </>
   );
 };
