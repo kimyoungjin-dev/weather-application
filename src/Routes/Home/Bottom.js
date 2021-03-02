@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { useState } from "./Context";
-import Loading from "Components/Loading";
-import { currentHour } from "Components/Date";
 import { weatherIcon } from "Components/WetherIcons";
 
 const Container = styled.div``;
@@ -39,23 +37,19 @@ const MiniCircleItem = styled.div`
 `;
 
 const Bottom = () => {
-  const { loading, response } = useState();
+  const { response } = useState();
   const [hourly] = response;
-  const number = [
-    currentHour + 0,
-    currentHour + 2,
-    currentHour + 4,
-    currentHour + 6,
-    currentHour + 8,
-    currentHour + 10,
-    currentHour + 12,
-  ];
+  const number = [0, 2, 4, 6, 8];
+  // console.log(new Date(hourly?.hourly[0].dt * 1000).getHours());
+
   return (
     <Container>
       <List>
         {number.map((num, index) => (
           <Item key={index}>
-            <MiniItem>{num}시</MiniItem>
+            <MiniItem>
+              {new Date(hourly?.hourly[num].dt * 1000).getHours()}시
+            </MiniItem>
             <MiniCircleItem>
               {weatherIcon[hourly?.hourly[num]?.weather[0].main]}
             </MiniCircleItem>
