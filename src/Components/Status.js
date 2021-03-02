@@ -9,6 +9,7 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   font-size: 20px;
+  padding: 0px 20px;
 `;
 
 const Time = styled.div``;
