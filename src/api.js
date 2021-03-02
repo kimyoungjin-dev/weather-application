@@ -18,6 +18,12 @@ const CurrentHourly = async (path, params = {}) => {
   }
 };
 
-export const current = {
+export const WeathData = {
   getCurrent: (lat, lon) => CurrentHourly("onecall", { lat, lon }),
+  getPast: (lat, lon, dt) =>
+    CurrentHourly("onecall/timemachine", {
+      lat,
+      lon,
+      dt,
+    }),
 };

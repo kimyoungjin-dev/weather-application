@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
-import { current } from "api";
+import { WeathData } from "api";
 import { useDispatch, useState } from "./Context";
 import { SUCCESS } from "./Reducer";
 import Form from "./Form";
-import Navigation from "Components/Navigation";
 import Bottom from "./Bottom";
 import Loading from "Components/Loading";
 
@@ -12,7 +11,7 @@ const HomeContainer = () => {
   const { loading } = useState();
 
   const getWeather = async (lat, lon) => {
-    const [data, dataError] = await current.getCurrent(lat, lon);
+    const [data, dataError] = await WeathData.getCurrent(lat, lon);
     dispatch({ type: SUCCESS, payload: data, dataError });
   };
 
@@ -40,7 +39,6 @@ const HomeContainer = () => {
       ) : (
         <>
           <Form />
-          <Navigation />
           <Bottom />
         </>
       )}
